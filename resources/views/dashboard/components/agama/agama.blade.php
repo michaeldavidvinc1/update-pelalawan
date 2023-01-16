@@ -31,9 +31,6 @@
                                         <label class="col-sm-3 " style="color:red"><strong>Agama*</strong></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="agama" name="agama">
-                                            @error('agama')
-                                                <div class="error">{{ $message }}</div>
-                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row col-6">
@@ -92,6 +89,7 @@
                 $('#agama').val('');
                 document.getElementById("defunct_ind").checked = false;
                 $('#update').prop('disabled', true);
+                $('#add').prop('disabled', false);
             });
         });
 

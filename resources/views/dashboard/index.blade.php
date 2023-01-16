@@ -17,6 +17,7 @@
     <link rel="stylesheet"
         href="{{ url('assets/dashboard/modules/owlcarousel2/dist/assets/owl.theme.default.min.css') }}">
 
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ url('assets/dashboard/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/dashboard/css/components.css') }}">

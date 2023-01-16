@@ -89,6 +89,7 @@
                 $('#bidang_ilmu').val('');
                 document.getElementById("defunct_ind").checked = false;
                 $('#update').prop('disabled', true);
+                $('#add').prop('disabled', false);
             });
         });
 

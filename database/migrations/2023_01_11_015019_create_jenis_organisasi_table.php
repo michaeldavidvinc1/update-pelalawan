@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jenis_organisasi', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_jenis');
+            $table->string('nama_organisasi');
+            $table->string('defunct_ind');
             $table->timestamps();
         });
     }
