@@ -27,10 +27,10 @@
           </li> -->
                 <!-- <li><a class="nav-link scrollto" href="dataentitas">Data Entitas</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Artikel</a></li> -->
-                <li><a class="nav-link scrollto text-success fw-semibold" style="padding-right: 10px" href="bantuan">Bantuan</a></li>
+                <li><a class="nav-link scrollto text-success fw-semibold" href="bantuan">Bantuan</a></li>
 
                 @can('admin')
-                <li><a class="nav-link scrollto text-success fw-semibold" style="padding-right: 10px" href="dashboard">Dashboard</a></li>
+                    <li><a class="nav-link scrollto text-success fw-semibold" style="padding-right: 10px" href="dashboard">Dashboard</a></li>
                 @endcan
 
                 <form action="/logout" method="POST">
