@@ -7,6 +7,7 @@ use App\Http\Controllers\AsnController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BidangIlmuController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataDasarController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\JenisAsetController;
 use App\Http\Controllers\JenisOrganisasiController;
@@ -49,11 +50,20 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('home');
+    });
+
+    Route::get('/datadasar', function () {
+        return view('datadasar');
+    });
+
+    Route::get('/bantuan', function () {
+        return view('bantuan');
     });
 });
 
 Route::middleware(['admin'])->group(function () {
+    Route::get('/datadasar', [DataDasarController::class, 'tablePage']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/agama', [AgamaController::class, 'index'])->name('agama.index');
     Route::post('/agama', [AgamaController::class, 'create'])->name('agama.add');
