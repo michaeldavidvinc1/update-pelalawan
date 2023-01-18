@@ -25,7 +25,7 @@
                         <div class="accordion-body collapse show" id="info" data-parent="#accordion">
                             <form action="#">
                                 @csrf
-                                <input type="text" id="id_kecamatan" name="id_kecamatan">
+                                <input type="hidden" id="id_kecamatan" name="id_kecamatan">
                                 <div class="row mt-2">
                                     <div class="form-group row col-6">
                                         <label class="col-sm-3 " style="color:red"><strong>Nama Kecamatan*</strong></label>

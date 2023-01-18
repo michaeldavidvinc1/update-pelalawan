@@ -31,6 +31,8 @@ class KecamatanController extends Controller
             'kecamatan' => 'required|max:255',
             'lakilaki' => 'required',
             'perempuan' => 'required',
+            'rumah_tangga' => 'required',
+            'luas_wilayah' => 'required',
             'defunct_ind' => 'required',
         ]);
 
@@ -56,6 +58,8 @@ class KecamatanController extends Controller
             'kecamatan' => 'required|max:255',
             'lakilaki' => 'required',
             'perempuan' => 'required',
+            'rumah_tangga' => 'required',
+            'luas_wilayah' => 'required',
             'defunct_ind' => 'required',
         ]);
 

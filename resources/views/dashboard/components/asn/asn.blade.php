@@ -156,7 +156,7 @@
             $('#clear').click(function() {
                 $('#id_asn').val('');
                 $('#nip').val('');
-                $('#bnama').val('');
+                $('#nama').val('');
                 $('#jenis_kelamin').val('');
                 $('#tempat_lahir').val('');
                 $('#tanggal_lahir').val('');
@@ -235,7 +235,7 @@
                     $(this).removeClass('selected');
                     $('#id_asn').val('');
                     $('#nip').val('');
-                    $('#bnama').val('');
+                    $('#nama').val('');
                     $('#jenis_kelamin').val('');
                     $('#tempat_lahir').val('');
                     $('#tanggal_lahir').val('');

@@ -31,6 +31,7 @@ class DesaController extends Controller
             'desa' => 'required|max:255',
             'lakilaki' => 'required',
             'perempuan' => 'required',
+            'rumah_tangga' => 'required',
             'defunct_ind' => 'required',
         ]);
 
@@ -52,6 +53,7 @@ class DesaController extends Controller
             'desa' => 'required|max:255',
             'lakilaki' => 'required',
             'perempuan' => 'required',
+            'rumah_tangga' => 'required',
             'defunct_ind' => 'required',
         ]);
 
