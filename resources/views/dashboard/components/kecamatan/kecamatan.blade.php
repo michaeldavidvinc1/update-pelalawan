@@ -105,11 +105,12 @@
                             </table>
                         </div>
                         <div class="row d-flex justify-content-end">
-                            <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#importModal" id="import">Import</button>
-                            <a href="{{ route('kecamatan.export') }}" class="btn btn-primary mr-2" id="export">Export</a>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Launch demo modal
-                              </button>
+                            <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#importModal"
+                                id="import">Import</button>
+                            <a href="{{ route('kecamatan.export') }}" class="btn btn-primary mr-2"
+                                id="export">Export</a>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Aw,
+                                yeah!</button>
                         </div>
                     </div>
                 </div>
@@ -119,45 +120,40 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    {{-- Modal Import --}}
-    <div class="modal fade" id="importModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-        aria-labelledby="formModal" aria-hidden="true">
-        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title fs-5" id="modelHeading">Import Excel</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('kecamatan.import') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="file" name="kecamatan">
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary modal-close"
-                                data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Import</button>
-                        </div>
-                    </form>
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal Import --}}
+    <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer bg-whitesmoke br">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

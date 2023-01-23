@@ -27,6 +27,7 @@ use App\Http\Controllers\StatusKeluargaController;
 use App\Http\Controllers\TahunAsetController;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\TenagaKesehatanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -141,4 +142,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/tenaga-kesehatan', [TenagaKesehatanController::class, 'index'])->name('tenagaKesehatan.index');
     Route::post('/tenaga-kesehatan', [TenagaKesehatanController::class, 'create'])->name('tenagaKesehatan.add');
     Route::post('/tenaga-kesehatan-update', [TenagaKesehatanController::class, 'update'])->name('tenagaKesehatan.update');
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::post('/user', [UserController::class, 'create'])->name('user.add');
+    Route::post('/user-update', [UserController::class, 'update'])->name('user.update');
 });
