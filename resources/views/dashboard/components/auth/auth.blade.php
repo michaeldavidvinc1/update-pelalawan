@@ -112,9 +112,9 @@
                 $('#name').val('');
                 $('#role').val('');
                 $('#email').val('');
-                document.getElementById("defunct_ind").checked = false;
                 $('#update').prop('disabled', true);
                 $('#add').prop('disabled', false);
+                $('#password').prop('disabled', false);
             });
         });
 
@@ -170,44 +170,71 @@
             $('#table tbody').on('click', 'tr', function() {
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
-                    $('#id_bidang_ilmu').val('');
-                    $('#bidang_ilmu').val('');
-                    document.getElementById("defunct_ind").checked = false;
+                    $('#id').val('');
+                    $('#name').val('');
+                    $('#role').val('');
+                    $('#email').val('');
+                    $('#password').val('');
                     $('#update').prop('disabled', true);
+                    $('#password').prop('disabled', false);
                 } else {
                     table.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
                     var data = $('#table').DataTable().rows(this).data();
-                    $('#id_bidang_ilmu').val(data[0].id_bidang_ilmu);
-                    $('#bidang_ilmu').val(data[0].bidang_ilmu);
-                    if (data[0].defunct_ind == "Y") {
-                        document.getElementById("defunct_ind").checked = true;
-                    } else {
-                        document.getElementById("defunct_ind").checked = false;
-                    }
+                    $('#id').val(data[0].id);
+                    $('#name').val(data[0].name);
+                    $('#role').val(data[0].role);
+                    $('#email').val(data[0].email);
+                    $('#password').val(data[0].password);
                     $('#add').prop('disabled', true);
                     $('#update').prop('disabled', false);
+                    $('#password').prop('disabled', true);
                 }
             });
         }
 
         function add() {
-            if ($("#bidang_ilmu").val() === "" || $("#bidang_ilmu").val() === null) {
+            if ($("#name").val() === "" || $("#name").val() === null) {
                 Swal.fire(
                     'Error',
-                    'Field Bidang Ilmu Cannot Be Null',
+                    'Field Nama Cannot Be Null',
                     'error'
                 );
             }
-            var bidang_ilmu = $("#bidang_ilmu").val();
-            var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
+            if ($("#role").val() === "" || $("#role").val() === null) {
+                Swal.fire(
+                    'Error',
+                    'Field Role Cannot Be Null',
+                    'error'
+                );
+            }
+            if ($("#email").val() === "" || $("#email").val() === null) {
+                Swal.fire(
+                    'Error',
+                    'Field Email Cannot Be Null',
+                    'error'
+                );
+            }
+            if ($("#password").val() === "" || $("#password").val() === null) {
+                Swal.fire(
+                    'Error',
+                    'Field Password Cannot Be Null',
+                    'error'
+                );
+            }
+            var name = $("#name").val();
+            var role = $("#role").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ route('bidangIlmu.add') }}",
+                url: "{{ route('user.add') }}",
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    bidang_ilmu: bidang_ilmu,
-                    defunct_ind: defunct_ind
+                    name: name,
+                    role: role,
+                    email: email,
+                    password: password,
                 },
                 success: function(res, data) {
                     query();
@@ -223,17 +250,21 @@
         }
 
         function update() {
-            var id_bidang_ilmu = $("#id_bidang_ilmu").val();
-            var bidang_ilmu = $("#bidang_ilmu").val();
-            var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
+            var id = $("#id").val();
+            var name = $("#name").val();
+            var role = $("#role").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
             $.ajax({
                 type: 'POST',
-                url: "{{ route('bidangIlmu.update') }}",
+                url: "{{ route('user.update') }}",
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    id_bidang_ilmu: id_bidang_ilmu,
-                    bidang_ilmu: bidang_ilmu,
-                    defunct_ind: defunct_ind
+                    id: id,
+                    name: name,
+                    role: role,
+                    email: email,
+                    password: password,
                 },
                 success: function(res, data) {
                     var table = $('#table').DataTable();

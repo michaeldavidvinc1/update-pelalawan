@@ -145,4 +145,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::post('/user', [UserController::class, 'create'])->name('user.add');
     Route::post('/user-update', [UserController::class, 'update'])->name('user.update');
+    Route::get('/user/{id}', [UserController::class, 'resetShow'])->name('reset.show');
+    Route::post('/user-reset', [UserController::class, 'resetUpdate'])->name('reset.update');
 });

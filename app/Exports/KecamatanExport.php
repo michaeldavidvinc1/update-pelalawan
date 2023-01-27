@@ -19,13 +19,13 @@ class KecamatanExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'id',
-            'Puskesmas',
-            'Laki - Laki',
+            'No',
+            'Kecamatan',
+            'Laki_Laki',
             'Perempuan',
-            'L + P',
-            'Rumah Tangga',
-            'Luas Wilayah',
+            'Total',
+            'Rumah_Tangga',
+            'Luas_Wilayah',
         ];
     }
 }

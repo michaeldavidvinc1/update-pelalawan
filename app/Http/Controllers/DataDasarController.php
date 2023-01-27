@@ -19,12 +19,12 @@ class DataDasarController extends Controller
         ->get()
         ->where('defunct_ind', 'N');
         $organisasi = DB::table('organisasi')
-            ->join('kecamatan', 'organisasi.id_kecamatan', '=', 'kecamatan.id_kecamatan')
-            ->join('desa', 'organisasi.id_desa', '=', 'desa.id_desa')
-            ->join('jenis_organisasi', 'organisasi.id_jenis', '=', 'jenis_organisasi.id_jenis')
-            ->select('organisasi.*', 'kecamatan.kecamatan', 'desa.desa',  'jenis_organisasi.nama_organisasi')
-            ->latest()
-            ->get()
+        ->join('kecamatan', 'organisasi.id_kecamatan', '=', 'kecamatan.id_kecamatan')
+        ->join('desa', 'organisasi.id_desa', '=', 'desa.id_desa')
+        ->join('jenis_organisasi', 'organisasi.id_jenis', '=', 'jenis_organisasi.id_jenis')
+        ->select('organisasi.*', 'kecamatan.kecamatan', 'desa.desa',  'jenis_organisasi.nama_organisasi')
+        ->latest()
+        ->get()
             ->where('defunct_ind', 'N');
         $penyakit = DB::table('penyakit_menonjol')
             ->join('tahun', 'penyakit_menonjol.id_tahun', '=', 'tahun.id_tahun')
@@ -46,7 +46,21 @@ class DataDasarController extends Controller
             ->latest()
             ->get()
             ->where('defunct_ind', 'N');
+        $jamkesda = DB::table('keluarga')
+        ->join('status_kawin', 'keluarga.id_status_kawin', '=', 'status_kawin.id_status_kawin')
+        ->join('agama', 'keluarga.id_agama', '=', 'agama.id_agama')
+        ->join('status_keluarga', 'keluarga.id_status_keluarga', '=', 'status_keluarga.id_status_keluarga')
+        ->select('keluarga.*', 'status_kawin.status_kawin', 'agama.agama',  'status_keluarga.status_keluarga')
+        ->latest()
+        ->get()
+        ->where('defunct_ind', 'N');
+        $inventaris = DB::table('kondisi_aset')
+        ->join('tahun', 'kondisi_aset.id_tahun', '=', 'tahun.id_tahun')
+        ->select('kondisi_aset.*', 'tahun.tahun')
+        ->latest()
+        ->get()
+        ->where('defunct_ind', 'N');
 
-        return view('datadasar', compact('data', 'nakes', 'organisasi', 'penyakit', 'penggunaanObat', 'kontrasepsi'));
+        return view('datadasar', compact('data', 'nakes', 'organisasi', 'penyakit', 'penggunaanObat', 'kontrasepsi', 'jamkesda', 'inventaris'));
     }
 }

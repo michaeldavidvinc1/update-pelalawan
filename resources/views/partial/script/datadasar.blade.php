@@ -73,14 +73,14 @@
                         </tr>
                     </thead>
                     @foreach ($nakes as $data)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $data->nama_nakes }}</td>
-                                <td class="text-center">{{ $data->nama_konsentrasi }}</td>
-                                <td class="text-center">{{ $data->nama_spesialis }}</td>
-                                <td class="text-center">{{ $data->name_organisasi }}</td>
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->nama_nakes }}</td>
+                            <td class="text-center">{{ $data->nama_konsentrasi }}</td>
+                            <td class="text-center">{{ $data->nama_spesialis }}</td>
+                            <td class="text-center">{{ $data->name_organisasi }}</td>
+                        </tr>
+                    @endforeach
                     <tbody>
                     </tbody>
                 </table>
@@ -112,7 +112,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableOrganisasi">
+                <table class="table table-hover data-table display compac row-border text-sm-start"
+                    id="tableOrganisasi">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
@@ -123,15 +124,16 @@
                             <th class="text-center">Kecamatan</th>
                         </tr>
                     </thead>
-                    @foreach ($organisasi as $data)
+                    <tbody>
+                        @foreach ($organisasi as $data)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $data->name_organisasi }}</td>
                                 <td class="text-center">{{ $data->nama_organisasi }}</td>
                                 <td class="text-center">
-                                    @if( $data->kelompok  == "faskes")
+                                    @if ($data->kelompok == 'faskes')
                                         Faskes
-                                    @elseif ( $data->kelompok == "nonfaskes")
+                                    @elseif ($data->kelompok == 'nonfaskes')
                                         Non Faskes
                                     @endif
                                 </td>
@@ -139,7 +141,6 @@
                                 <td class="text-center">{{ $data->kecamatan }}</td>
                             </tr>
                         @endforeach
-                    <tbody>
                     </tbody>
                 </table>
             </div>
@@ -179,12 +180,12 @@
                         </tr>
                     </thead>
                     @foreach ($penyakit as $data)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $data->tahun }}</td>
-                                <td class="text-center">{{ $data->nama_penyakit }}</td>
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->tahun }}</td>
+                            <td class="text-center">{{ $data->nama_penyakit }}</td>
+                        </tr>
+                    @endforeach
                     <tbody>
                     </tbody>
                 </table>
@@ -226,13 +227,13 @@
                         </tr>
                     </thead>
                     @foreach ($penggunaanObat as $data)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $data->tahun }}</td>
-                                <td class="text-center">{{ $data->obat_paten }}</td>
-                                <td class="text-center">{{ $data->obat_generik }}</td>
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->tahun }}</td>
+                            <td class="text-center">{{ $data->obat_paten }}</td>
+                            <td class="text-center">{{ $data->obat_generik }}</td>
+                        </tr>
+                    @endforeach
                     <tbody>
                     </tbody>
                 </table>
@@ -264,7 +265,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table table-hover data-table display compac row-border text-sm-start" id="tableKontrasepsi">
+                <table class="table table-hover data-table display compac row-border text-sm-start"
+                    id="tableKontrasepsi">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
@@ -273,12 +275,12 @@
                         </tr>
                     </thead>
                     @foreach ($kontrasepsi as $data)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $data->tahun }}</td>
-                                <td class="text-center">{{ $data->nama_kontrasepsi }}</td>
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->tahun }}</td>
+                            <td class="text-center">{{ $data->nama_kontrasepsi }}</td>
+                        </tr>
+                    @endforeach
                     <tbody>
                     </tbody>
                 </table>
@@ -296,4 +298,136 @@
     });
 </script>
 
-{{-- Obat Page End --}}
+{{-- Alat Kontrasepsi Page End --}}
+
+{{-- Keluarga Page Start --}}
+
+<div class="modal fade" id="jamsekdaTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Jamkesda</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start"
+                    id="tableJamkesda">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">NIK</th>
+                            <th class="text-center">No KK</th>
+                            <th class="text-center">Nama</th>
+                            <th class="text-center">Jenis Kelamin</th>
+                            <th class="text-center">Tempat Lahir</th>
+                            <th class="text-center">Tanggal Lahir</th>
+                            <th class="text-center">Status Kawin</th>
+                            <th class="text-center">Agama</th>
+                            <th class="text-center">Status Dalam Keluarga</th>
+                            <th class="text-center">Status Jamkesda</th>
+                        </tr>
+                    </thead>
+                    @foreach ($jamkesda as $data)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->nik }}</td>
+                            <td class="text-center">{{ $data->no_kk }}</td>
+                            <td class="text-center">{{ $data->nama }}</td>
+                            <td class="text-center">{{ $data->jenis_kelamin }}</td>
+                            <td class="text-center">{{ $data->tempat_lahir }}</td>
+                            <td class="text-center">{{ $data->tanggal_lahir }}</td>
+                            <td class="text-center">{{ $data->status_keluarga }}</td>
+                            <td class="text-center">{{ $data->agama }}</td>
+                            <td class="text-center">{{ $data->status_kawin }}</td>
+                            <td class="text-center">{{ $data->status_jamkesda }}</td>
+                        </tr>
+                    @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tableJamkesda').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Keluarga Page End --}}
+
+{{-- Inventaris Page Start --}}
+
+<div class="modal fade" id="inventarisTable" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Jamkesda</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover data-table display compac row-border text-sm-start"
+                    id="tableInventaris">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Tahun</th>
+                            <th class="text-center">Baik</th>
+                            <th class="text-center">Rusak Ringan</th>
+                            <th class="text-center">Rusak Berat</th>
+                        </tr>
+                    </thead>
+                    @foreach ($inventaris as $data)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->tahun }}</td>
+                            <td class="text-center">
+                                @if ($data->baik == 'ya')
+                                    <i class="bi bi-check-lg"></i>
+                                @elseif ($data->baik == 'tidak')
+                                    <i class="bi bi-x-lg"></i>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if ($data->rusak_ringan == 'ya')
+                                    <i class="bi bi-check-lg"></i>
+                                @elseif ($data->rusak_ringan == 'tidak')
+                                    <i class="bi bi-x-lg"></i>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if ($data->rusak_berat == 'ya')
+                                    <i class="bi bi-check-lg"></i>
+                                @elseif ($data->rusak_berat == 'tidak')
+                                    <i class="bi bi-x-lg"></i>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#tableInventaris').DataTable({
+            fixedHeader: true,
+            paginate: true,
+            searching: true,
+        });
+    });
+</script>
+
+{{-- Inventaris Page End --}}

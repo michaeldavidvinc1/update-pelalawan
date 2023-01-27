@@ -19,12 +19,12 @@ class DesaExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'id',
-            'Puskesmas',
-            'Laki - Laki',
+            'No',
+            'Desa',
+            'Laki_Laki',
             'Perempuan',
-            'L + P',
-            'Rumah Tangga',
+            'Total',
+            'Rumah_Tangga',
         ];
     }
 }

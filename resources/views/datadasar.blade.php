@@ -23,7 +23,7 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -169,7 +169,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#faskesTable">Data Inventaris</a></h3>
+                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#inventarisTable">Data Inventaris</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
@@ -182,8 +182,8 @@
                     <div class="col-lg-3 col-md-4 mt-4">
                         <div class="icon-box">
                             <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#nakesTable">Data
-                            Jamsekda</a></h3>
+                            <h3><a href="/datadasar-nakes"  data-bs-toggle="modal" data-bs-target="#jamsekdaTable">Data
+                            Jamkesda</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4">

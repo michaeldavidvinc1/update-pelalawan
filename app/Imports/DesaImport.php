@@ -15,13 +15,19 @@ class DesaImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+        $rumah_tangga = 0;
+        if($row['rumah_tangga'] == null) {
+            $rumah_tangga = 0;
+        } else {
+            $rumah_tangga = $row['rumah_tangga'];
+        }
         return new DesaModel([
-            'kecamatan'     => $row['Kecamatan'],
-            'lakilaki'    => $row['Laki - Laki'],
-            'perempuan'    => $row['Perempuan'],
-            'total'    => $row['L + P'],
-            'rumah_tangga'    => $row['Rumah Tangga'],
-            'luas_wilayah'    => $row['Luas Wilayah'],
+            'desa'     => $row['desa'],
+            'lakilaki'    => $row['laki_laki'],
+            'perempuan'    => $row['perempuan'],
+            'total'    => $row['total'],
+            'rumah_tangga'    => $rumah_tangga,
+            'defunct_ind' => 'N'
         ]);
     }
 }

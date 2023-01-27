@@ -82,6 +82,15 @@
                             <h4>Desa List</h4>
                         </div>
                         <div class="accordion-body collapse show mb-2" id="list" data-parent="#accordion">
+                            <div class="row mb-3">
+                                <form action="{{ route('desa.import') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="file" name="desa" id="desa">
+                                    <button type="submit" class="btn btn-primary">Import</button>
+                                </form>
+                                <a href="{{ route('desa.export') }}" class="btn btn-primary mr-2 ml-3"
+                                    id="export">Export</a>
+                            </div>
                             <table class="table table-bordered" id="table">
                                 <thead>
                                     <tr>
@@ -96,13 +105,6 @@
                                 </thead>
                             </table>
                         </div>
-                        <div class="row d-flex justify-content-end">
-                            <button class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#importModal" id="import">Import</button>
-                            <a href="{{ route('desa.export') }}" class="btn btn-primary mr-2" id="export">Export</a>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Launch demo modal
-                              </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -111,23 +113,23 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     {{-- Modal Import --}}
     <div class="modal fade" id="importModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"

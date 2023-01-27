@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,11 +14,7 @@ class UserController extends Controller
 
         if (request()->ajax()) {
             return datatables()->of($data)
-                ->addColumn('action', function ($row) {
-                    $btn = '<a href="/edit-password" data-id="'.$row->id.'" class="btn btn-icon icon-left btn-warning"><i class="fas fa-exclamation-triangle"></i> Reset Password</a>';
-
-                    return $btn;
-                })
+                ->addColumn('action', 'dashboard.components.auth.action-btn')
                 ->rawColumns(['action'])
                 ->addIndexColumn()
                 ->make(true);
@@ -26,16 +23,39 @@ class UserController extends Controller
     }
 
     public function resetShow($id) {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         return view('dashboard.components.auth.resetPassword', compact('user'));
+    }
+
+    public function resetUpdate(Request $request) {
+        $id = $request->id;
+        $user = User::findOrFail($id);
+        $validatedData = $request->validate([
+            'password' => 'required',
+            'name' => 'max:255',
+            'role' => 'max:255',
+            'email' => 'max:255',
+        ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['name'] = $user->name;
+        $validatedData['role'] = $user->role;
+        $validatedData['email'] = $user->email;
+
+        User::findOrFail($id)->update($validatedData);
+
+        return redirect('/user');
     }
 
     public function create(Request $request)
     {
         $validator = $request->validate([
-            'bidang_ilmu' => 'required|max:255',
-            'defunct_ind' => 'required',
+            'name' => 'required|max:255',
+            'role' => 'required|max:255',
+            'email' => 'required|email:dns',
+            'password' => 'required|max:255',
         ]);
+
+        $validator['password'] = Hash::make($validator['password']);
 
         User::create($validator);
         return back();
@@ -43,15 +63,18 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
-        $id = $request->id_bidang_ilmu;
+        $id = $request->id;
+        $user = User::findOrFail($id);
         $validatedData = $request->validate([
-            'bidang_ilmu'     => 'required|max:255',
-            'defunct_ind'     => 'required',
+            'name' => 'required|max:255',
+            'role' => 'required|max:255',
+            'email' => 'required|email:dns',
+            'password' => 'max:255',
         ]);
 
-        User::findOrFail($id)
-            ->update($validatedData);
+        $validatedData['password'] = $user->password;
+
+        User::findOrFail($id)->update($validatedData);
         return back();
     }
 }
