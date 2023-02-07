@@ -169,7 +169,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                         <div class="icon-box">
                             <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#inventarisTable">Data Inventaris</a></h3>
+                            <h3><a a href="/datadasar-faskes" data-bs-toggle="modal" data-bs-target="#inventarisTable">Data Aset</a></h3>
                         </div>
                     </div>
                     <!-- <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">

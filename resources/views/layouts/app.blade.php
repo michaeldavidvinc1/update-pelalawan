@@ -167,7 +167,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="contact-about">
               <h3>Data Rumah Sakit Plalawan</h3>
-              <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+              <p>Informasi Data Kesehatan Plalawan Disajikan Dalam Bentuk Tabel Berformat Excel Agar Lebih Mudah Untuk Dapat Diunduh.</p>
               <div class="social-links">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -186,12 +186,12 @@
 
               <div>
                 <i class="ri-mail-send-line"></i>
-                <p>info@example.com</p>
+                <p>rs-pelalawan@gmail.com</p>
               </div>
 
               <div>
                 <i class="ri-phone-line"></i>
-                <p>(0761) 493986</p>
+                <p>+62***-****-****</p>
               </div>
 
             </div>

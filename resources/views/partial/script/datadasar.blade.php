@@ -369,7 +369,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Jamkesda</h4>
+                <h4 class="modal-title fs-5 text-center" id="modelHeading">Data Aset</h4>
                 <button type="button" class="close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
