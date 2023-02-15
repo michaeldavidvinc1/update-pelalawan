@@ -33,9 +33,9 @@ class KondisiAsetController extends Controller
     {
         $validator = $request->validate([
             'id_tahun' => 'required|max:255',
-            'baik' => 'required|max:255',
-            'rusak_ringan' => 'required|max:255',
-            'rusak_berat' => 'required|max:255',
+            'nama_aset' => 'required|max:255',
+            'jumlah' => 'required|max:255',
+            'kondisi' => 'required|max:255',
             'defunct_ind' => 'required',
         ]);
 
@@ -49,9 +49,9 @@ class KondisiAsetController extends Controller
         $id = $request->id_kondisi_aset;
         $validatedData = $request->validate([
             'id_tahun' => 'required|max:255',
-            'baik' => 'required|max:255',
-            'rusak_ringan' => 'required|max:255',
-            'rusak_berat' => 'required|max:255',
+            'nama_aset' => 'required|max:255',
+            'jumlah' => 'required|max:255',
+            'kondisi' => 'required|max:255',
             'defunct_ind' => 'required',
         ]);
 

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('kondisi_aset', function (Blueprint $table) {
             $table->id('id_kondisi_aset');
             $table->foreignId('id_tahun');
-            $table->string('baik');
-            $table->string('rusak_ringan');
-            $table->string('rusak_berat');
+            $table->string('nama_aset');
+            $table->string('jumlah');
+            $table->string('kondisi');
             $table->string('defunct_ind');
             $table->timestamps();
         });

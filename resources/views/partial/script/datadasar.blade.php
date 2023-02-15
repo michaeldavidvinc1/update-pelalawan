@@ -381,36 +381,18 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Tahun</th>
-                            <th class="text-center">Baik</th>
-                            <th class="text-center">Rusak Ringan</th>
-                            <th class="text-center">Rusak Berat</th>
+                            <th class="text-center">Nama Aset</th>
+                            <th class="text-center">Jumlah</th>
+                            <th class="text-center">Kondisi</th>
                         </tr>
                     </thead>
                     @foreach ($inventaris as $data)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-center">{{ $data->tahun }}</td>
-                            <td class="text-center">
-                                @if ($data->baik == 'ya')
-                                    <i class="bi bi-check-lg"></i>
-                                @elseif ($data->baik == 'tidak')
-                                    <i class="bi bi-x-lg"></i>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                @if ($data->rusak_ringan == 'ya')
-                                    <i class="bi bi-check-lg"></i>
-                                @elseif ($data->rusak_ringan == 'tidak')
-                                    <i class="bi bi-x-lg"></i>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                @if ($data->rusak_berat == 'ya')
-                                    <i class="bi bi-check-lg"></i>
-                                @elseif ($data->rusak_berat == 'tidak')
-                                    <i class="bi bi-x-lg"></i>
-                                @endif
-                            </td>
+                            <td class="text-center">{{ $data->nama_aset }}</td>
+                            <td class="text-center">{{ $data->jumlah }}</td>
+                            <td class="text-center">{{ $data->kondisi }}</td>
                         </tr>
                     @endforeach
                     <tbody>

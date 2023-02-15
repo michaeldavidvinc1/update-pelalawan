@@ -11,9 +11,9 @@ class KondisiAsetModel extends Model
     protected $primaryKey = 'id_kondisi_aset';
     protected $fillable = [
         'id_tahun',
-        'baik',
-        'rusak_ringan',
-        'rusak_berat',
+        'nama_aset',
+        'jumlah',
+        'kondisi',
         'defunct_ind'
     ];
     use HasFactory;

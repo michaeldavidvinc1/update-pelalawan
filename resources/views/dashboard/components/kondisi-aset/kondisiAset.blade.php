@@ -39,57 +39,25 @@
                                         </div>
                                     </div>
                                     <div class="form-group row col-6">
-                                        <label for="inputEmail3"
-                                            class="col-sm-3 col-form-label"><strong>Baik</strong></label>
+                                        <label class="col-sm-3 " style="color:red"><strong>Nama Aset*</strong></label>
                                         <div class="col-sm-9">
-                                            <div class="row">
-                                                <div class="form-check mr-3">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="baik"
-                                                            id="baik" value="ya"> Ya </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="baik"
-                                                            id="baik" value="tidak"> Tidak </label>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" id="nama_aset" name="nama_aset">
                                         </div>
                                     </div>
                                     <div class="form-group row col-6">
-                                        <label for="inputEmail3" class="col-sm-3 col-form-label"><strong>Rusak
-                                                Ringan</strong></label>
+                                        <label class="col-sm-3 " style="color:red"><strong>Jumlah*</strong></label>
                                         <div class="col-sm-9">
-                                            <div class="row">
-                                                <div class="form-check mr-3">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="rusak_ringan"
-                                                            id="rusak_ringan" value="ya"> Ya </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="rusak_ringan"
-                                                            id="rusak_ringan" value="tidak"> Tidak </label>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" id="jumlah" name="jumlah">
                                         </div>
                                     </div>
                                     <div class="form-group row col-6">
-                                        <label for="inputEmail3" class="col-sm-3 col-form-label"><strong>Rusak
-                                                Berat</strong></label>
+                                        <label class="col-sm-3 " style="color:red"><strong>Tahun*</strong></label>
                                         <div class="col-sm-9">
-                                            <div class="row">
-                                                <div class="form-check mr-3">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="rusak_berat"
-                                                            id="rusak_berat" value="ya"> Ya </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="rusak_berat"
-                                                            id="rusak_berat" value="tidak"> Tidak </label>
-                                                </div>
-                                            </div>
+                                            <select class="form-control" id="kondisi" name="kondisi">
+                                                <option value="">Pilih Kondisi...</option>
+                                                <option value="baik">Baik</option>
+                                                <option value="kurang_baik">Kurang Baik</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row col-6">
@@ -127,9 +95,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Tahun</th>
-                                        <th>Baik</th>
-                                        <th>Rusak Ringan</th>
-                                        <th>Rusak Berat</th>
+                                        <th>Nama Aset</th>
+                                        <th>Jumlah</th>
+                                        <th>Kondisi</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
@@ -149,7 +117,9 @@
             $('#clear').click(function() {
                 $('#id_kondisi_aset').val('');
                 $('#id_tahun').val('');
-                $("input:radio").prop("checked", false);
+                $('#nama_aset').val('');
+                $('#jumlah').val('');
+                $('#kondisi').val('');
                 document.getElementById("defunct_ind").checked = false;
                 $('#update').prop('disabled', true);
                 $('#add').prop('disabled', false);
@@ -178,31 +148,21 @@
                         name: 'id_tahun'
                     },
                     {
-                        data: function(data) {
-                            if (data.baik == "ya") {
-                                return '<i class="fas fa-check"></i>';
-                            }
-                            return '-';
-                        },
-                        name: 'baik'
+                        data: 'nama_aset',
+                        name: 'nama_aset'
+                    },
+                    {
+                        data: 'jumlah',
+                        name: 'jumlah'
                     },
                     {
                         data: function(data) {
-                            if (data.rusak_ringan == "ya") {
-                                return '<i class="fas fa-check"></i>';
+                            if (data.rusak_berat == "baik") {
+                                return 'Baik';
                             }
-                            return '-';
+                            return 'Kurang Baik';
                         },
-                        name: 'rusak_ringan'
-                    },
-                    {
-                        data: function(data) {
-                            if (data.rusak_berat == "ya") {
-                                return '<i class="fas fa-check"></i>';
-                            }
-                            return '-';
-                        },
-                        name: 'rusak_berat'
+                        name: 'kondisi'
                     },
                     {
                         data: function(data) {
@@ -221,7 +181,9 @@
                     $(this).removeClass('selected');
                     $('#id_kondisi_aset').val('');
                     $('#id_tahun').val('');
-                    $("input:radio").prop("checked", false);
+                    $('#nama_aset').val('');
+                    $('#jumlah').val('');
+                    $('#kondisi').val('');
                     document.getElementById("defunct_ind").checked = false;
                     $('#update').prop('disabled', true);
                 } else {
@@ -230,9 +192,9 @@
                     var data = $('#table').DataTable().rows(this).data();
                     $('#id_kondisi_aset').val(data[0].id_kondisi_aset);
                     $('#id_tahun').val(data[0].id_tahun);
-                    $('input:radio[name=baik][value=' + data[0].baik + ']').prop('checked', true);
-                    $('input:radio[name=rusak_ringan][value=' + data[0].rusak_ringan + ']').prop('checked', true);
-                    $('input:radio[name=rusak_berat][value=' + data[0].rusak_berat + ']').prop('checked', true);
+                    $('#nama_aset').val(data[0].nama_aset);
+                    $('#jumlah').val(data[0].jumlah);
+                    $('#kondisi').val(data[0].kondisi);
                     if (data[0].defunct_ind == "Y") {
                         document.getElementById("defunct_ind").checked = true;
                     } else {
@@ -252,31 +214,31 @@
                     'error'
                 );
             }
-            if ($("#baik").val() === "" || $("#baik").val() === null) {
+            if ($("#nama_aset").val() === "" || $("#nama_aset").val() === null) {
                 Swal.fire(
                     'Error',
-                    'Field Baik Cannot Be Null',
+                    'Field Nama Aset Cannot Be Null',
                     'error'
                 );
             }
-            if ($("#rusak_ringan").val() === "" || $("#rusak_ringan").val() === null) {
+            if ($("#jumlah").val() === "" || $("#jumlah").val() === null) {
                 Swal.fire(
                     'Error',
-                    'Field Rusak Ringan Cannot Be Null',
+                    'Field Jumlah Cannot Be Null',
                     'error'
                 );
             }
-            if ($("#rusak_berat").val() === "" || $("#rusak_berat").val() === null) {
+            if ($("#kondisi").val() === "" || $("#kondisi").val() === null) {
                 Swal.fire(
                     'Error',
-                    'Field Rusak Berat Cannot Be Null',
+                    'Field Kondisi Cannot Be Null',
                     'error'
                 );
             }
             var id_tahun = $("#id_tahun").val();
-            var baik = $("#baik:checked").val();
-            var rusak_ringan = $("#rusak_ringan:checked").val();
-            var rusak_berat = $("#rusak_berat:checked").val();
+            var nama_aset = $("#nama_aset").val();
+            var jumlah = $("#jumlah").val();
+            var kondisi = $("#kondisi").val();
             var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
             $.ajax({
                 type: 'POST',
@@ -284,9 +246,9 @@
                 data: {
                     "_token": "{{ csrf_token() }}",
                     id_tahun: id_tahun,
-                    baik: baik,
-                    rusak_ringan: rusak_ringan,
-                    rusak_berat: rusak_berat,
+                    nama_aset: nama_aset,
+                    jumlah: jumlah,
+                    kondisi: kondisi,
                     defunct_ind: defunct_ind
                 },
                 success: function(res, data) {
@@ -305,9 +267,9 @@
         function update() {
             var id_kondisi_aset = $("#id_kondisi_aset").val();
             var id_tahun = $("#id_tahun").val();
-            var baik = $("#baik:checked").val();
-            var rusak_ringan = $("#rusak_ringan:checked").val();
-            var rusak_berat = $("#rusak_berat:checked").val();
+            var nama_aset = $("#nama_aset").val();
+            var jumlah = $("#jumlah").val();
+            var kondisi = $("#kondisi").val();
             var defunct_ind = $("#defunct_ind").prop("checked") ? "Y" : "N"
             $.ajax({
                 type: 'POST',
@@ -316,9 +278,9 @@
                     "_token": "{{ csrf_token() }}",
                     id_kondisi_aset: id_kondisi_aset,
                     id_tahun: id_tahun,
-                    baik: baik,
-                    rusak_ringan: rusak_ringan,
-                    rusak_berat: rusak_berat,
+                    nama_aset: nama_aset,
+                    jumlah: jumlah,
+                    kondisi: kondisi,
                     defunct_ind: defunct_ind
                 },
                 success: function(res, data) {
