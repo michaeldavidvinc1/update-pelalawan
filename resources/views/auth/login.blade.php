@@ -32,7 +32,7 @@
                     <div class="form-group mt-4 mb-4">
                         <div class="captcha">
                             <span>{!! captcha_img() !!}</span>
-                            <button type="button" class="btn btn-info" class="reload" id="reload">
+                            <button type="button" class="btn btn-danger" class="reload" id="reload">
                                 &#x21bb;
                             </button>
                         </div>
@@ -57,12 +57,13 @@
     </div>
 
     <script src="{{ url('assets/login_page/js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('#reload').click(function() {
+        $('#reload').click(function () {
             $.ajax({
                 type: 'GET',
                 url: 'reload-captcha',
-                success: function(data) {
+                success: function (data) {
                     $(".captcha span").html(data.captcha);
                 }
             });

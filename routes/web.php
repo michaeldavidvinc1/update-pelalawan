@@ -46,7 +46,7 @@ Route::get('/login', function () {
 })->middleware('guest')->name('login');
 
 Route::post('/login', [AuthController::class, 'auth']);
-Route::get('/reload-captcha', [AuthController::class, 'reloadCaptcha']);
+Route::get('/reload-captcha', [AuthController::class, 'reloadCaptcha'])->name('reloadCaptcha');
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
